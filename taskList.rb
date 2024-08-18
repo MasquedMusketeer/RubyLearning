@@ -1,6 +1,6 @@
 taskList = []
 taskStatus = []
-taskMenu = ["---Ruby Task List---", '1 - Add Task', "2 - Delete Task", "3 - View rogress", "0 - Close App"]
+taskMenu = ["---Ruby Task List---", '1 - Add Task', "2 - Delete Task", "3 - View progress", "0 - Close App"]
 
 def showMenu(menuString)
   menuString.each do |string|
