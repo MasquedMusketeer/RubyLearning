@@ -1,3 +1,5 @@
+hexTable = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]      # A lookup table for hexadecimal digits. indexes 10-15 represent hexadecimal letters A-F.
+
 def userInput()                       #getting user input
   usr = (gets.chomp).to_s
   return usr
@@ -8,15 +10,14 @@ def direct(value,flag)                #conversion selector
   when "d"
     decimal(value)
   when "h"
-    hex(value)
+    hex(value,hexTable)
   when "b"
     bin(value)
   end
 end
 
 #_____________Convert any non-decimal value to decimal________________
-def valueConver(value)
-  hexTable = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
+def valueConver(value,hexTable)
   hexRange = ("A".."F").to_a
   decRange = ("2".."9").to_a
   conversionFlag = ""
@@ -56,4 +57,21 @@ def valueConver(value)
   end
 end
 
-puts valueConver("1000")
+#____________________Functions of the bin and hex from dec values___________________________________
+
+def hex(value,hexTable)               #function to convert from decimal to hexadecimal
+  remainder = 0
+  quotient = value.to_i
+  hexResult = ""
+  until quotient < 16                 #loop that builds the string of the hex value until the second last digit
+    remainder = quotient % 16
+    quotient = quotient / 16
+    if remainder > 9                  #handling of the characters from A to F
+      remainder = hexTable[remainder]
+    end
+    hexResult << remainder.to_s
+  end
+  quotient = hexTable[quotient]      #addition of the last digit of the hex value already converted to hex in case of values > 9
+  hexResult << quotient.to_s
+  return hexResult.reverse           #reversion of the hex string to a human readable form
+end
