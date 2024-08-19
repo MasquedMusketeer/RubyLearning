@@ -110,7 +110,7 @@ interfaceString = [
 ]
 
 loop do                                     #Main operation loop
-  2bitRange = ("0".."1").to_a
+  twoBitRange = ["0","1"]
   decimalRange = 2bitRange + ("2".."9").to_a
   fullRange = decimalRange + ("A".."F").to_a
   flag = ""
@@ -136,7 +136,7 @@ loop do                                     #Main operation loop
     value = userInput().to_s.upcase           #determine user set value
     condition1 = (input == "1" || input == "5") && !value.each_char.any? { |char| fullRange.include?(char) }       #validtion of input for hex operations
     condition2 = (input == "3" || input == "4") && !value.each_char.any? { |char| decimalRange.include?(char) }    #validtion of input for decimal operations
-    condition3 = (input == "2" || input == "6") && !value.each_char.any? { |char| 2bitRange.include?(char) }       #validtion of input for bin operations
+    condition3 = (input == "2" || input == "6") && !value.each_char.any? { |char| twoBitRange.include?(char) }       #validtion of input for bin operations
     if condition1 == true
       puts "Invalid input for this operation."
     elsif condition2 == true
