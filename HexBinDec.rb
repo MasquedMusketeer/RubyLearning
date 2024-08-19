@@ -111,7 +111,7 @@ interfaceString = [
 
 loop do                                     #Main operation loop
   twoBitRange = ["0","1"]
-  decimalRange = 2bitRange + ("2".."9").to_a
+  decimalRange = twoBitRange + ("2".."9").to_a
   fullRange = decimalRange + ("A".."F").to_a
   flag = ""
   interfaceString.each do |line|            #interface printing
