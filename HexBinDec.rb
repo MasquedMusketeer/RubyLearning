@@ -14,9 +14,9 @@ def direct(value,flag,hexTable)                #conversion selector
   when "hb>d"                         #on conversion from any to dec, the conversion function already handles both, so only one call is needed
     valueConver(value,hexTable)
   when "h>b"
-    valueConver(bin(value),hexTable)  #converts first from hex to dec, then from dec to bin
+    bin(valueConver(value,hexTable))  #converts first from hex to dec, then from dec to bin
   when "b>h"
-    valueConver(hex(value),hexTable)  #converts first from bin to dec,then from dec to hex
+    hex(valueConver(value,hexTable),hexTable)  #converts first from bin to dec,then from dec to hex
   end
 end
 
